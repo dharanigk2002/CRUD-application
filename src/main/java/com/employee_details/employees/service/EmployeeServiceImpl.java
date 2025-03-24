@@ -18,7 +18,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public void saveEmployee(Employee employee) {
         var existingEmployee = getEmployeeByEmail(employee.getEmailId());
-        if(!existingEmployee.getEmployeeId().equals(employee.getEmployeeId()) && existingEmployee!=null)
+        if(existingEmployee!=null && !existingEmployee.getEmployeeId().equals(employee.getEmployeeId()))
             throw new EmployeeNotFoundException("Employee already exists with same email");
         employeeRepository.saveEmployee(employee);
     }

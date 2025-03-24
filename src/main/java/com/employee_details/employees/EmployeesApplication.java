@@ -12,8 +12,10 @@ public class EmployeesApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeesApplication.class, args);
 	}
-	@PostConstruct
-	public void logMessage() {
-		System.out.println("Server listening on port 8080");
+	@Bean
+	public CommandLineRunner commandLineRunner(@Value("${server.port}") String portNumber) {
+		return runner -> {
+			System.out.println("Server running on port:" + portNumber);
+		};
 	}
 }

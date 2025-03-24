@@ -2,7 +2,6 @@ package com.employee_details.employees.controller;
 
 import com.employee_details.employees.entity.Employee;
 import com.employee_details.employees.service.EmployeeService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,9 +11,9 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/employees")
-public class EmployeeMvcController {
+public class EmployeeController {
     private final EmployeeService employeeService;
-    public EmployeeMvcController(EmployeeService employeeService) {
+    public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 
